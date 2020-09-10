@@ -1,0 +1,17 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+ul,
+li {
+  list-style: none;
+}
+
+/* login_css */
+.login .el-form-item__content {
+  margin-left: 0 !important;
+}

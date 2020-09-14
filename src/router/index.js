@@ -7,7 +7,14 @@ import { getItem } from '@/utils/storage'
 
 Vue.use(VueRouter)
 
+// 解决重复点击hash报错的问题  new Vuerouter之前
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 const router = new VueRouter({
+  mode: 'hash',
   routes
 })
 
@@ -20,11 +27,5 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
-
-// 解决重复点击hash报错的问题
-const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
 
 export default router

@@ -89,7 +89,7 @@ export default {
           // 将token存入本地实现持久化,之后使用vuex实现全局化
           this.$store.commit('setUserToken', data.token)
           // TODO:  跳转
-          this.$router.push('welcome')
+          this.$router.push('/home')
           this.$message.success('登录成功')
         } catch (error) {
           this.$message.error('未知出错')
